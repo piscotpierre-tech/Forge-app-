@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="theme-color" content="#0A0A0F">
+<meta name="theme-color" content="#101213">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="FORGE">
 <meta name="description" content="Programme athlétique 24 mois — calisthenics progressif, nutrition adaptée, suivi complet.">
-<title>FORGE — édition partageable — Coach Athlétique 24 Mois — Coaching automatique</title>
+<title>FORGE — Coach sportif et suivi personnel</title>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
 /* ── TOKENS ────────────────────────────────────────────── */
@@ -724,6 +724,42 @@ tr:last-child td { border-bottom: none; }
 .forge-block-order div{padding:7px 4px;text-align:center;border:1px solid var(--border);border-radius:9px;font-size:9px;font-weight:800;letter-spacing:.5px;color:var(--muted)}
 .session-focus{background:rgba(0,212,255,.05);border:1px solid rgba(0,212,255,.22);border-radius:10px;padding:12px;margin-bottom:12px;font-size:12px}.session-focus strong{color:var(--cyan)}
 @media(max-width:420px){.forge-block-order{gap:4px}.forge-block-order div{font-size:8px;padding:6px 2px}}
+/* Accueil FORGE — aperçu sombre premium */
+body:has(#p1.active) { background:#101213; }
+.topbar { background:rgba(16,18,19,.96); border-color:#292c2d; height:60px; }
+.logo { font-family:Inter,sans-serif; font-size:25px; font-weight:800; letter-spacing:-1.5px; color:#f5f5f4; text-transform:lowercase; }
+.logo::before { content:'╱'; color:#ff894b; display:inline-block; margin-right:7px; font-weight:900; }
+.bottom-nav { background:rgba(16,18,19,.98); border-color:#292c2d; height:70px; }
+.nav-btn.active,.nav-btn.active .nav-icon { color:#ff894b; filter:none; }
+.nav-btn { font-size:11px; letter-spacing:0; text-transform:none; }
+.page { padding-bottom:calc(96px + env(safe-area-inset-bottom)); }
+.storage-warning { background:#3c251e; border:1px solid #ff894b; color:#ffe7d9; border-radius:12px; padding:13px; font-size:13px; line-height:1.5; margin-bottom:18px; }
+input:focus-visible,select:focus-visible,button:focus-visible { outline:2px solid #ff894b; outline-offset:3px; }
+#p1 { padding-top:82px; max-width:720px; }
+#p1 .forge-welcome { margin-bottom:22px; }
+#p1 .forge-welcome h1 { font-size:clamp(29px,7vw,39px); line-height:1.13; letter-spacing:-1.5px; font-weight:750; color:#f5f5f4; }
+#p1 .forge-welcome p { color:#a5a6a6; font-size:13px; margin-top:8px; line-height:1.5; }
+#p1 .forge-week { display:grid; grid-template-columns:repeat(7,minmax(0,1fr)); gap:5px; margin:18px 0 22px; }
+#p1 .forge-week-day { text-align:center; padding:8px 1px; color:#a5a6a6; font-size:10px; border-radius:12px; line-height:1.35; }
+#p1 .forge-week-day strong { display:block; margin-top:5px; font-size:14px; color:#eee; }
+#p1 .forge-week-day.today { background:#ff894b; color:#191614; }
+#p1 .forge-week-day.today strong { color:#191614; }
+#p1 .forge-feature { position:relative; overflow:hidden; background:radial-gradient(circle at 95% 5%,rgba(255,137,75,.17),transparent 48%),linear-gradient(135deg,#232627,#171a1b); border:1px solid #373b3b; border-radius:22px; padding:23px; margin-bottom:16px; min-height:190px; }
+#p1 .forge-feature:after { content:'╱'; position:absolute; right:-8px; top:23px; font-size:180px; line-height:1; font-weight:800; color:rgba(255,137,75,.08); pointer-events:none; }
+#p1 .forge-feature > * { position:relative; z-index:1; }
+#p1 .forge-eyebrow { font-size:11px; text-transform:uppercase; letter-spacing:1.5px; color:#ffad7c; font-weight:700; }
+#p1 .forge-feature h2 { margin:15px 0 7px; color:#f6f6f5; font-size:25px; letter-spacing:-.7px; }
+#p1 .forge-feature p { font-size:13px; line-height:1.5; color:#bbb; max-width:420px; }
+#p1 .forge-feature-meta { margin:15px 0 18px; display:flex; flex-wrap:wrap; gap:7px; }
+#p1 .forge-feature-meta span { font-size:11px; color:#d2d2d0; border:1px solid #4a4b4a; padding:6px 9px; border-radius:20px; }
+#p1 .forge-feature button { background:#ff894b; color:#171414; border:0; border-radius:12px; padding:13px 17px; font-size:13px; font-weight:750; min-height:44px; }
+#p1 .forge-shortcuts { display:grid; grid-template-columns:repeat(2,1fr); gap:10px; margin-bottom:26px; }
+#p1 .forge-shortcuts button { background:#202324; border:1px solid #373b3b; border-radius:15px; color:#eee; padding:15px; min-height:62px; text-align:left; font-size:13px; font-weight:650; }
+#p1 .forge-shortcuts button span { color:#ff894b; margin-right:8px; }
+#p1 .forge-save-note { color:#aeb0af; font-size:12px; line-height:1.5; margin:-14px 0 24px; }
+#p1 .year-bar-wrap,#p1 .card,#p1 .body-dash,#p1 .coach-today-card { border-radius:17px; background-color:#202324; border-color:#373b3b; }
+#p1 .sect-title,#p1 .session-focus strong { color:#ffad7c; }
+@media(max-width:380px) { #p1 .forge-feature { padding:18px; } #p1 .forge-week { gap:1px; } }
 </style>
 </head>
 <body>
@@ -772,6 +808,26 @@ tr:last-child td { border-bottom: none; }
      PAGE 1 — AUJOURD'HUI
 ════════════════════════════════════════════ -->
 <main id="p1" class="page active">
+
+  <div class="storage-warning" id="forge-storage-warning" hidden role="alert">Le stockage est indisponible dans ce navigateur. Tes pesées et séances ne seront pas enregistrées. Ouvre FORGE dans un navigateur qui autorise les données locales avant de saisir ton suivi.</div>
+
+  <section class="forge-welcome" aria-label="Accueil du jour">
+    <h1>Ta journée, ton rythme.</h1>
+    <p>Ton programme FORGE s'adapte au planning prévu. Voici l'essentiel pour aujourd'hui.</p>
+    <div class="forge-week" id="forge-week" aria-label="Semaine actuelle"></div>
+    <div class="forge-feature" id="forge-feature">
+      <div class="forge-eyebrow" id="forge-feature-type">Programme du jour</div>
+      <h2 id="forge-feature-title">Ta journée FORGE</h2>
+      <p id="forge-feature-copy">Ton planning se prépare…</p>
+      <div class="forge-feature-meta" id="forge-feature-meta"></div>
+      <button id="forge-feature-action" type="button" onclick="document.getElementById('today-exs').scrollIntoView({behavior:'smooth',block:'start'})">Voir la séance →</button>
+    </div>
+    <div class="forge-shortcuts">
+      <button type="button" onclick="document.querySelector('#p1 .scale-card').scrollIntoView({behavior:'smooth'})"><span>↗</span> Ma progression</button>
+      <button type="button" onclick="goTo('p3','Nutrition')"><span>↗</span> Nutrition</button>
+    </div>
+    <p class="forge-save-note">Ton suivi reste sur cet appareil. Exporte une sauvegarde régulièrement depuis la page Nutrition et conserve le fichier en lieu privé.</p>
+  </section>
 
   <!-- Barre annuelle -->
   <div class="year-bar-wrap">
@@ -853,7 +909,7 @@ tr:last-child td { border-bottom: none; }
       <div class="metric-field">
         <label>Poids</label>
         <div class="metric-input-wrap">
-          <input class="metric-input" type="number" id="log-w" step="0.1" min="40" max="200" placeholder="96.8" inputmode="decimal">
+          <input class="metric-input" type="number" id="log-w" step="0.1" min="40" max="200" placeholder="Ex. 90.0" inputmode="decimal">
           <span class="metric-unit">kg</span>
         </div>
       </div>
@@ -1390,6 +1446,20 @@ const forgeStorage = (() => {
   }
 })();
 const forgeStoragePersistent = (() => { try { return forgeStorage === window.localStorage; } catch(e) { return false; } })();
+function forgeStoredJSON(key,fallback){
+  try {
+    const value=forgeStorage.getItem(key);
+    if(!value)return fallback;
+    const parsed=JSON.parse(value);
+    if(Array.isArray(fallback))return Array.isArray(parsed)?parsed:fallback;
+    return parsed&&typeof parsed==='object'&&!Array.isArray(parsed)?parsed:fallback;
+  }catch(e){console.warn('FORGE : donnée locale illisible',key);return fallback;}
+}
+function requireForgeStorage(){
+  if(forgeStoragePersistent)return true;
+  alert('Le stockage est indisponible : aucun suivi ne peut être conservé dans ce navigateur.');
+  return false;
+}
 
 // Date de départ enregistrée localement à la première ouverture ; aucune date personnelle dans le code.
 const START=(()=>{const key='forge_start_date',raw=forgeStorage.getItem(key);
@@ -1649,8 +1719,14 @@ const CHALLENGES = [
 /* ════════════════════════════════════════════
    ÉTAT
 ════════════════════════════════════════════ */
-let weights = JSON.parse(forgeStorage.getItem('forge_w') || '[]');
-let records = JSON.parse(forgeStorage.getItem('forge_r') || '{}');
+let weights = forgeStoredJSON('forge_w',[]).filter(e=>e&&typeof e.w==='number'&&e.w>=40&&e.w<=200&&Number.isFinite(e.ts)&&e.ts>0&&e.ts<Date.now()+86400000).map(e=>{
+  const clean={...e};
+  for(const field of ['f','m','water','bone','visceral','bodyage'])if(!Number.isFinite(clean[field]))clean[field]=null;
+  if(!Number.isInteger(clean.mi)||clean.mi<0||clean.mi>23)clean.mi=0;
+  if(typeof clean.date!=='string'||!/^[0-9/]+$/.test(clean.date))clean.date=new Date(clean.ts).toLocaleDateString('fr-FR');
+  return clean;
+});
+let records = Object.fromEntries(Object.entries(forgeStoredJSON('forge_r',{})).filter(([,list])=>Array.isArray(list)).map(([key,list])=>[key,list.filter(e=>e&&Number.isFinite(e.v)&&Number.isFinite(e.ts)&&e.ts>0&&e.ts<Date.now()+86400000).map(e=>({...e,date:typeof e.date==='string'&&/^[0-9/]+$/.test(e.date)?e.date:new Date(e.ts).toLocaleDateString('fr-FR')}))]));
 let selMonth = null;
 let activeChId = null;
 let timerSec = 0;
@@ -1718,7 +1794,7 @@ function advanceForgePhase(){
   const current=getActiveMonthIdx(),next=current+3;
   if(next>=24){alert('Dernière phase du programme.');return;}
   const entered=Number(forgeStorage.getItem('forge_phase_started'))||START.getTime();
-  const completed=JSON.parse(forgeStorage.getItem('forge_completed_exercises')||'{}');
+  const completed=forgeStoredJSON('forge_completed_exercises',{});
   const days=Object.entries(completed).filter(([k,ids])=>/^\d{4}-\d{2}-\d{2}$/.test(k)&&new Date(k).getTime()>=entered&&Array.isArray(ids)&&ids.length>=2);
   if(Date.now()-entered<28*86400000||days.length<6){alert('Il faut au moins 4 semaines et 6 jours avec deux exercices complétés dans cette phase.');return;}
   if(!document.getElementById('forge-ready').checked){alert('Vérifie les mouvements et ta récupération avant de poursuivre.');return;}
@@ -1826,7 +1902,7 @@ function renderEx(ex, i) {
 /* ════════════════════════════════════════════
    SUIVI DES SÉRIES (cases à cocher, page Aujourd'hui)
 ════════════════════════════════════════════ */
-let setLog = JSON.parse(forgeStorage.getItem('forge_sets') || '{}');
+let setLog = Object.fromEntries(Object.entries(forgeStoredJSON('forge_sets',{})).filter(([,value])=>Array.isArray(value)).map(([key,value])=>[key,value.filter(n=>Number.isInteger(n)&&n>=0&&n<=100)]));
 
 // Extrait le nombre de séries depuis une string type '4×12 rép', '3 × 30→60 sec', '2×30 min...'
 function parseSetCount(setsStr) {
@@ -1869,6 +1945,7 @@ function renderExWithSets(ex, i, dayKey) {
 }
 
 function toggleSet(logKey, setIdx, nSets) {
+  if(!requireForgeStorage())return;
   if (!setLog[logKey]) setLog[logKey] = [];
   const idx = setLog[logKey].indexOf(setIdx);
   const wasChecking = idx < 0;
@@ -1880,7 +1957,7 @@ function toggleSet(logKey, setIdx, nSets) {
   forgeStorage.setItem('forge_sets', JSON.stringify(setLog));
   if(!wasChecking){
     const date=logKey.slice(0,10),exercise=logKey.slice(11);
-    const completed=JSON.parse(forgeStorage.getItem('forge_completed_exercises')||'{}');
+    const completed=forgeStoredJSON('forge_completed_exercises',{});
     if(Array.isArray(completed[date])){
       completed[date]=completed[date].filter(id=>id!==exercise);
       forgeStorage.setItem('forge_completed_exercises',JSON.stringify(completed));
@@ -1892,7 +1969,7 @@ function toggleSet(logKey, setIdx, nSets) {
     const nowComplete = setLog[logKey].length >= nSets;
     if (nowComplete) {
       const date=logKey.slice(0,10),exercise=logKey.slice(11);
-      const completed=JSON.parse(forgeStorage.getItem('forge_completed_exercises')||'{}');
+      const completed=forgeStoredJSON('forge_completed_exercises',{});
       completed[date]=Array.isArray(completed[date])?completed[date]:[];
       if(!completed[date].includes(exercise))completed[date].push(exercise);
       forgeStorage.setItem('forge_completed_exercises',JSON.stringify(completed));
@@ -1908,7 +1985,7 @@ function toggleSet(logKey, setIdx, nSets) {
 /* ════════════════════════════════════════════
    SÉANCE COMMANDO (circuit chronométré, 1-2×/semaine)
 ════════════════════════════════════════════ */
-let commandoLog = JSON.parse(forgeStorage.getItem('forge_commando') || '[]'); // liste de timestamps d'utilisation
+let commandoLog = forgeStoredJSON('forge_commando',[]).filter(n=>Number.isFinite(n)&&n>0); // liste de timestamps d'utilisation
 let commandoState = { running: false, exIdx: 0, phase: 'work', secLeft: 0, timer: null, exList: [] };
 
 const COMMANDO_WORK_SEC = 40;
@@ -2138,6 +2215,7 @@ function renderTodayCoach() {
   if (!el) return;
 
   const coach = getTodayCoach();
+  renderForgeFeature(coach);
   const nextDays = coach.scheduledDays.map(d => ['dim','lun','mar','mer','jeu','ven','sam'][d]).join(' · ');
 
   if (coach.training) {
@@ -2175,10 +2253,31 @@ function renderTodayCoach() {
   }
 }
 
+function renderForgeFeature(coach) {
+  const week=document.getElementById('forge-week');
+  if(!week)return;
+  const now=new Date(),monday=new Date(now.getFullYear(),now.getMonth(),now.getDate()-((now.getDay()+6)%7));
+  const labels=['Lun','Mar','Mer','Jeu','Ven','Sam','Dim'];
+  week.innerHTML=labels.map((label,i)=>{
+    const day=new Date(monday.getFullYear(),monday.getMonth(),monday.getDate()+i);
+    const today=day.toDateString()===now.toDateString();
+    return `<div class="forge-week-day${today?' today':''}"${today?' aria-current="date"':''}>${label}<strong>${day.getDate()}</strong></div>`;
+  }).join('');
+  document.getElementById('forge-feature-type').textContent=coach.training?'Séance du jour':'Récupération du jour';
+  document.getElementById('forge-feature-title').textContent=coach.training?coach.sessionLabel:'Prends le temps de récupérer';
+  document.getElementById('forge-feature-copy').textContent=coach.training?'La séance prévue par ton programme est prête. Échauffement, conditionnement et récupération sont détaillés plus bas.':'Aucune séance prévue aujourd’hui. Tu peux consulter la mobilité, les étirements ou noter une marche.';
+  const meta=document.getElementById('forge-feature-meta');
+  const items=coach.training?[coach.phase.name,`≈ ${coach.duration} min`,`Séance ${coach.sessionNumber}/${coach.sessions}`]:[coach.phase.name,`${coach.sessions} séances / semaine`];
+  meta.replaceChildren(...items.map(value=>{const span=document.createElement('span');span.textContent=value;return span;}));
+  const action=document.getElementById('forge-feature-action');
+  action.textContent=coach.training?'Voir ma séance →':'Voir ma récupération →';
+  action.onclick=()=>document.getElementById(coach.training?'warmup-content':'cooldown-content').scrollIntoView({behavior:'smooth',block:'start'});
+}
+
 /* ════════════════════════════════════════════
    ÉTIREMENTS DU JOUR (fusionné depuis SOUFFLE)
 ════════════════════════════════════════════ */
-let stretchLog = JSON.parse(forgeStorage.getItem('forge_stretch') || '{}');
+let stretchLog = Object.fromEntries(Object.entries(forgeStoredJSON('forge_stretch',{})).filter(([,value])=>value===true));
 
 function stretchId(s) {
   return s.n.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,'-');
@@ -2190,7 +2289,7 @@ function renderStretchBlock(stretches, containerId, todayKey) {
     const logKey = `${todayKey}:${id}`;
     const isDone = !!stretchLog[logKey];
     return `<div class="stretch-card${isDone?' done':''}">
-      <button class="stretch-check${isDone?' done':''}" onclick="toggleStretch('${logKey}')">${isDone?'✓':''}</button>
+      <button class="stretch-check${isDone?' done':''}" aria-label="${isDone?'Décocher':'Marquer comme fait'} : ${s.n}" onclick="toggleStretch('${logKey}')">${isDone?'✓':''}</button>
       <div class="stretch-body">
         <div class="stretch-name">${s.n}</div>
         <div class="stretch-desc">${s.d}</div>
@@ -2230,6 +2329,7 @@ function renderTodayStretches() {
 }
 
 function toggleStretch(logKey) {
+  if(!requireForgeStorage())return;
   const wasChecking = !stretchLog[logKey];
   if (stretchLog[logKey]) {
     delete stretchLog[logKey];
@@ -2251,13 +2351,21 @@ function selectFeel(n) {
 }
 
 function logWeight() {
+  if(!requireForgeStorage())return;
   const w        = parseFloat(document.getElementById('log-w').value);
-  const f        = parseFloat(document.getElementById('log-f').value) || null;
-  const m        = parseFloat(document.getElementById('log-m').value) || null;
-  const water    = parseFloat(document.getElementById('log-water').value) || null;
-  const bone     = parseFloat(document.getElementById('log-bone').value) || null;
-  const visceral = parseFloat(document.getElementById('log-visceral').value) || null;
-  const bodyage  = parseFloat(document.getElementById('log-bodyage').value) || null;
+  const optional=(id,min,max)=>{
+    const raw=document.getElementById(id).value;
+    if(raw==='')return null;
+    const value=Number(raw);
+    if(!Number.isFinite(value)||value<min||value>max)throw Error('Vérifie la valeur de '+document.getElementById(id).closest('.metric-field').querySelector('label').textContent.toLowerCase()+'.');
+    return value;
+  };
+  let f,m,water,bone,visceral,bodyage;
+  try{
+    f=optional('log-f',5,60);m=optional('log-m',10,70);
+    water=optional('log-water',30,80);bone=optional('log-bone',1,6);
+    visceral=optional('log-visceral',1,30);bodyage=optional('log-bodyage',10,80);
+  }catch(err){alert(err.message);return;}
   const feel     = selectedFeel;
   if (!w || w < 40 || w > 200) { alert('Poids invalide'); return; }
 
@@ -2353,7 +2461,7 @@ function renderWeightHistory() {
       else               { delta='='; cls='eq'; }
     }
     return `<tr>
-      <td>${e.date}</td>
+      <td>${String(e.date||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}</td>
       <td><strong>${e.w.toFixed(1)} kg</strong></td>
       <td class="${cls}">${delta}</td>
       <td style="color:var(--muted)">${e.f ? e.f+'%' : '—'}</td>
@@ -2496,7 +2604,7 @@ function showMonthDetail(mi) {
    CALENDRIER DU MOIS (modal plein écran)
 ════════════════════════════════════════════ */
 let zoomMonthIdx = 0;
-let monthAdaptations = JSON.parse(forgeStorage.getItem('forge_adapt') || '{}');
+let monthAdaptations = Object.fromEntries(Object.entries(forgeStoredJSON('forge_adapt',{})).filter(([,note])=>typeof note==='string'));
 
 function openMonthZoom() {
   zoomMonthIdx = monthIdx();
@@ -2582,6 +2690,7 @@ function renderMonthZoom() {
 }
 
 function saveMonthAdaptation(mi) {
+  if(!requireForgeStorage())return;
   const text = document.getElementById('zoom-adapt-text').value.trim();
   monthAdaptations[mi] = text;
   forgeStorage.setItem('forge_adapt', JSON.stringify(monthAdaptations));
@@ -2675,13 +2784,11 @@ function updateTrend() {
     }
   } else {
     const goal=getGoalWeight();
-    const daysToTarget = goal!==null&&slope < -0.001 ? Math.round((cur - goal) / -slope) : null;
-    const monthsToTarget = daysToTarget ? (daysToTarget/30.44).toFixed(1) : null;
     if (slope < -0.02) {
       msg = `Tendance réelle : <strong style="color:var(--green)">${slopeMonth.toFixed(1)}kg/mois</strong> sur tes ${n} dernières pesées.`;
-      if (monthsToTarget) msg += ` À ce rythme, tu atteins ton objectif dans <strong style="color:var(--white)">~${monthsToTarget} mois</strong>.`;
+      msg += ' Cette tendance courte ne permet pas de prévoir une date d’arrivée fiable.';
     } else if (slope > 0.02) {
-      msg = `Tendance réelle : <strong style="color:var(--orange)">+${slopeMonth.toFixed(1)}kg/mois</strong> sur tes ${n} dernières pesées. Ça part dans le mauvais sens — regarde nutrition et récup.`;
+      msg = `Tendance récente : <strong style="color:var(--orange)">+${slopeMonth.toFixed(1)}kg/mois</strong> sur tes ${n} dernières pesées. Vérifie le contexte et observe plusieurs semaines avant de modifier ton plan.`;
     } else {
       msg = `Tendance réelle : <strong style="color:var(--muted)">quasi stable</strong> sur tes ${n} dernières pesées (${slopeMonth>=0?'+':''}${slopeMonth.toFixed(1)}kg/mois). Normal si tu prends du muscle en parallèle.`;
     }
@@ -2712,7 +2819,7 @@ function initP5() {
     const rows = [...recs].sort((a,b)=>b.ts-a.ts).slice(0,5)
       .map((r,i)=>`<div class="rec-row">
         <span class="rec-rank">${i+1}</span>
-        <span style="color:var(--muted)">${r.date}</span>
+        <span style="color:var(--muted)">${String(r.date||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}</span>
         <span class="rec-val">${formatEntry(r)}</span>
       </div>`).join('');
 
@@ -2807,6 +2914,7 @@ function timerReset() {
   if (rd) rd.textContent = '0';
 }
 function timerSave() {
+  if(!requireForgeStorage())return;
   if (!activeChId) { alert('Sélectionne un challenge d\'abord !'); return; }
   if (timerSec === 0 && currentReps === 0) { alert('Lance le chrono ou note tes répétitions avant de sauvegarder !'); return; }
   timerPause();
@@ -2888,6 +2996,22 @@ function renderNutritionSupplements(){
   const powder=nutritionChoice('nut-powder');
   el.innerHTML=`<div class="surf">${powder==='whey'?'Whey choisie : 25 g estimés dans le menu ; vérifie son étiquette.':powder==='recovery'?'Poudre de récupération choisie : une dose saisie selon son étiquette, comptée dans le menu. Pas de whey ajoutée.':'Aucune poudre protéinée prévue dans le menu.'}<br>Hydrate-toi selon la soif, la chaleur et ton activité. Les autres compléments ne sont pas présumés pris : vérifie leurs doses et leurs ingrédients ensemble.</div>`;
 }
+function normalizeFoodTerm(value){
+  return String(value).toLocaleLowerCase('fr-FR').replace(/œ/g,'oe').normalize('NFD').replace(/[\u0300-\u036f]/g,'').trim();
+}
+const FOOD_EXCLUSIONS=[
+  {names:['oeuf','oeufs','egg','eggs'],foods:['Œufs entiers']},
+  {names:['lait','lactose','produits laitiers','fromage blanc','whey'],foods:['Fromage blanc','Whey','poudre de récupération']},
+  {names:['ble','gluten','pain','pain complet'],foods:['Pain complet']},
+  {names:['banane','bananes'],foods:['Banane']},
+  {names:['poulet','dinde','volaille'],foods:['Poulet ou dinde']},
+  {names:['poisson','poissons'],foods:['Poisson blanc']},
+  {names:['riz'],foods:['Riz basmati cuit']},
+  {names:['pomme de terre','pommes de terre','patate','patates'],foods:['Pommes de terre cuites']},
+  {names:['legumes','legume'],foods:['Légumes variés']},
+  {names:['huile','olive'],foods:['Huile d’olive']},
+  {names:['pomme','pommes','avoine','flocons d avoine'],foods:[]}
+];
 function buildNutritionPlan(target,protTarget,glucTarget,lipTarget){
   const session=nutritionChoice('nut-session'),powder=nutritionChoice('nut-powder');
   const meals=[
@@ -2906,21 +3030,30 @@ function buildNutritionPlan(target,protTarget,glucTarget,lipTarget){
   if(target-total().kcal>130)meals[1].items.find(x=>x[0]==='Riz basmati cuit')[1]+=60;
   if(target-total().kcal>130)meals[4].items.find(x=>x[0]==='Pain complet')[1]+=40;
   if(target-total().kcal>130)meals[3].items.find(x=>x[0]==='Pommes de terre cuites')[1]+=100;
-  const exclusions=nutritionChoice('nut-exclusions').split(',').map(x=>x.trim().toLocaleLowerCase('fr')).filter(Boolean);
-  const conflicts=meals.flatMap(m=>m.items.map(i=>i[0])).filter(name=>exclusions.some(x=>{
-    const n=name.toLocaleLowerCase('fr');return n===x||n.startsWith(x+' ')||n.startsWith(x+' /');
-  }));
-  if(conflicts.length){document.getElementById('nut-plan-empty').style.display='block';
-    document.getElementById('nut-plan-empty').textContent=`Exclusion détectée : ${[...new Set(conflicts)].join(', ')}. Ce menu d'exemple ne convient pas ; choisis des aliments sûrs avant de calculer les apports.`;
-    document.getElementById('nut-plan').innerHTML='';document.getElementById('nut-plan-total').style.display='none';return null;}
+  const exclusions=nutritionChoice('nut-exclusions').split(',').map(normalizeFoodTerm).filter(Boolean);
+  const unknown=exclusions.filter(x=>!FOOD_EXCLUSIONS.some(group=>group.names.includes(x)));
+  const chosen=FOOD_EXCLUSIONS.filter(group=>exclusions.some(x=>group.names.includes(x)));
+  const listed=new Set(meals.flatMap(m=>m.items.map(i=>i[0])));
+  const conflicts=[...new Set(chosen.flatMap(group=>group.foods).filter(food=>listed.has(food)))];
+  if(unknown.length||conflicts.length){
+    const reason=unknown.length?`Exclusion non reconnue : ${unknown.join(', ')}. Le menu ne peut pas être vérifié automatiquement.`:`Exclusion détectée dans le menu : ${conflicts.join(', ')}.`;
+    document.getElementById('nut-plan-empty').style.display='block';
+    document.getElementById('nut-plan-empty').textContent=reason+' Aucun menu n’est proposé : vérifie les ingrédients et choisis des aliments adaptés.';
+    document.getElementById('nut-plan').innerHTML='';document.getElementById('nut-plan-total').style.display='none';return {status:'exclusion'};
+  }
   const rendered=meals.map(m=>({...m,its:items(m),total:sumNut(items(m))})),real=total(),gap=Math.round(target-real.kcal);
+  if(Math.abs(gap)>150){
+    document.getElementById('nut-plan-empty').style.display='block';
+    document.getElementById('nut-plan-empty').textContent=`Ce menu type totalise ${Math.round(real.kcal)} kcal, soit ${Math.abs(gap)} kcal ${gap>0?'de moins':'de plus'} que la cible estimée de ${target} kcal. Il ne convient pas à cette cible ; ajuste ton estimation d’activité et construis un menu adapté avant de l’utiliser.`;
+    document.getElementById('nut-plan').innerHTML='';document.getElementById('nut-plan-total').style.display='none';return {status:'gap',real,gap};
+  }
   const pct=(v,t)=>Math.round(v)+'g / cible '+t+'g';
   document.getElementById('nut-plan').innerHTML=rendered.map(m=>`<div class="meal eve mb8"><div class="meal-time">${m.time}</div><div class="meal-name">${m.name}</div><div class="meal-detail">${m.its.map(i=>`<strong>${i.qty}${i.unit}</strong> ${i.name}`).join(' · ')}</div><div class="macros"><span class="mac">P ${Math.round(m.total.p)}g</span><span class="mac">G ${Math.round(m.total.c)}g</span><span class="mac">L ${Math.round(m.total.l)}g</span><span class="mac">${Math.round(m.total.kcal)} kcal</span></div></div>`).join('');
   document.getElementById('nut-plan-empty').style.display='none';
   document.getElementById('nut-plan-total').style.display='block';
-  document.getElementById('nut-plan-total').innerHTML=`<div class="surf"><strong>Total proposé : ${Math.round(real.kcal)} kcal</strong> · Écart à la cible estimée : ${gap>=0?'+':''}${gap} kcal<div class="macros"><span class="mac">P ${pct(real.p,protTarget)}</span><span class="mac">G ${pct(real.c,glucTarget)}</span><span class="mac">L ${pct(real.l,lipTarget)}</span><span class="mac">Fibres ${Math.round(real.f)}g</span></div>${Math.abs(gap)>150?'<div class="page-sub">Écart notable : cible et portions ne concordent pas encore. Revois ton activité et adapte les repas avec un professionnel si cela se répète.</div>':''}${powder==='recovery'?'<div class="page-sub">Les glucides et lipides de poudre de récupération restent inconnus : vérifie l’étiquette. Les kcal et protéines saisies sont prises en compte.</div>':''}</div>`;
+  document.getElementById('nut-plan-total').innerHTML=`<div class="surf"><strong>Total proposé : ${Math.round(real.kcal)} kcal</strong> · Écart à la cible estimée : ${gap>=0?'+':''}${gap} kcal<div class="macros"><span class="mac">P ${pct(real.p,protTarget)}</span><span class="mac">G ${pct(real.c,glucTarget)}</span><span class="mac">L ${pct(real.l,lipTarget)}</span><span class="mac">Fibres ${Math.round(real.f)}g</span></div><div class="page-sub">Les aliments préparés et les poudres peuvent contenir d'autres ingrédients ou traces : vérifie chaque étiquette et les risques de contamination selon tes allergies.</div>${powder==='recovery'?'<div class="page-sub">Les glucides et lipides de poudre de récupération restent inconnus : vérifie l’étiquette. Les kcal et protéines saisies sont prises en compte.</div>':''}</div>`;
   document.getElementById('nr-meals').textContent=meals.length;
-  return {real,gap};
+  return {status:'ok',real,gap};
 }
 function calcNutrition(){
   const age=Number(nutritionChoice('nut-age')),height=Number(nutritionChoice('nut-height')),
@@ -2947,7 +3080,10 @@ function calcNutrition(){
   document.getElementById('nut-weight').value=w.toFixed(1);
   forgeStorage.setItem('forge_profile',JSON.stringify({age,height,sex,activity,session,goal,exclusions:nutritionChoice('nut-exclusions'),powder:nutritionChoice('nut-powder'),recoveryKcal:nutritionChoice('nut-recovery-kcal'),recoveryDose:nutritionChoice('nut-recovery-dose'),recoveryProt:nutritionChoice('nut-recovery-prot'),maintain}));
   refreshWeightDisplay();renderNutPhaseBanner();const built=buildNutritionPlan(target,prot,gluc,lip);renderNutritionSupplements();
-  if(!built){document.getElementById('nut-uncertainty').textContent='Le menu contient un aliment exclu ; le total n’est pas affiché.';return;}
+  if(built.status!=='ok'){
+    document.getElementById('nut-uncertainty').textContent=built.status==='exclusion'?'Le menu est bloqué par une exclusion : le calcul calorique ne garantit jamais la sécurité d’un aliment.':'Le menu standard est masqué car ses portions ne correspondent pas à la cible estimée.';
+    return;
+  }
   document.getElementById('nut-uncertainty').textContent=`Cible estimée (${maintain?'maintien confirmé':'déficit initial de 350 kcal'}) : ajuste sur 2 à 4 semaines selon la tendance, la faim, les performances et ton état de santé. Séance déclarée : ${session}.`;
   const ex=document.getElementById('nut-explain-text');if(ex)ex.textContent=maintain?'Maintien confirmé sur plusieurs pesées.':'Ton objectif reste celui que tu renseignes ; un seul chiffre sur la balance ne change pas le plan.';
 }
@@ -3187,7 +3323,7 @@ function applyDayTypeEverywhere() {
 /* ════════════════════════════════════════════
    MARCHE OPTIONNELLE (durée libre)
 ════════════════════════════════════════════ */
-let walkLog = JSON.parse(forgeStorage.getItem('forge_walk') || '{}');
+let walkLog = Object.fromEntries(Object.entries(forgeStoredJSON('forge_walk',{})).filter(([,minutes])=>Number.isFinite(minutes)&&minutes>=0&&minutes<=90));
 
 function updateWalkDisplay(val) {
   const v = parseInt(val);
@@ -3202,6 +3338,7 @@ function setWalkDuration(min) {
 }
 
 function logWalk() {
+  if(!requireForgeStorage())return;
   const min = parseInt(document.getElementById('walk-duration').value);
   const key = todayKeyStr();
   const status = document.getElementById('walk-status');
@@ -3232,7 +3369,9 @@ function loadTodayWalk() {
 /* ════════════════════════════════════════════
    SYSTÈME XP / NIVEAUX
 ════════════════════════════════════════════ */
-let xpData = JSON.parse(forgeStorage.getItem('forge_xp') || '{"total":0,"log":[]}');
+let xpData = forgeStoredJSON('forge_xp',{total:0,log:[]});
+if(!Number.isFinite(xpData.total)||xpData.total<0)xpData.total=0;
+if(!Array.isArray(xpData.log))xpData.log=[];
 
 const XP_TITLES = [
   { min: 0,    title: 'Débutant Engagé',        icon: '🌱' },
@@ -3676,7 +3815,7 @@ const RITUAL_MESSAGES = [
   { word: 'MAINTENANT',      phrase: 'Pas demain. Pas plus tard. Maintenant.' },
   { word: 'FORGE-TOI',       phrase: 'Le fer ne devient acier que sous la chaleur.' },
   { word: 'AVANCE',          phrase: 'Un pas. Puis un autre. C\'est tout.' },
-  { word: 'BRÛLE',           phrase: 'La douleur d\'aujourd\'hui est la force de demain.' },
+  { word: 'PROGRESSE',       phrase: 'Un effort maîtrisé construit tes progrès.' },
   { word: 'DÉPASSE-TOI',     phrase: 'Tu n\'es pas là pour être confortable.' },
   { word: 'DEBOUT',          phrase: 'Chaque matin est une chance de recommencer plus fort.' },
   { word: 'CONSTRUIS',       phrase: 'Chaque répétition pose une brique. Ne manque aucune.' },
@@ -3727,7 +3866,7 @@ const RITUAL_MESSAGES = [
   { word: 'MARQUE',          phrase: 'Ce jour dans ton corps. Pour toujours.' },
   { word: 'CRAN',            phrase: 'Tu en as. Prouve-le à chaque répétition.' },
   { word: 'PUISSANCE',       phrase: 'Elle dort en toi. Réveille-la.' },
-  { word: 'INARRÊTABLE',     phrase: 'Pas parfait. Pas sans douleur. Mais inarrêtable.' },
+  { word: 'RÉGULIER',        phrase: 'Avance à ton rythme et respecte ta récupération.' },
   { word: 'DÉCIDE',          phrase: 'C\'est une décision. Tu l\'as prise. Honore-la.' },
   { word: 'VAINCS',          phrase: 'La flemme. L\'hésitation. La mollesse. Vaincs-les.' },
   { word: 'SANS QUARTIER',   phrase: 'Ni pour la fatigue, ni pour la paresse.' },
@@ -3771,7 +3910,7 @@ const RITUAL_MESSAGES = [
   { word: 'SOIS L\'EXEMPLE', phrase: 'De ce que la discipline peut accomplir.' },
   { word: 'GRIMPE',          phrase: 'La montée est dure. La vue en haut vaut tout.' },
   { word: 'CHAQUE MUSCLE',   phrase: 'Que tu construis te rappelle que tu t\'es battu pour lui.' },
-  { word: 'SANS PEUR',       phrase: 'De la douleur. Du temps. De l\'effort.' },
+  { word: 'À L’ÉCOUTE',      phrase: 'Adapte la séance à ton état du jour.' },
   { word: 'PERPÉTUEL',       phrase: 'Le mouvement. L\'effort. La progression.' },
   { word: 'COUP DE POING',   phrase: 'Dans la fatigue. Elle n\'a qu\'à plier.' },
   { word: 'INÉBRANLABLE',    phrase: 'Ni la fatigue ni le doute ne te feront lâcher.' },
@@ -3810,7 +3949,7 @@ const RITUAL_MESSAGES = [
   { word: 'RELÈVE-TOI',      phrase: 'Chaque fois que tu tombes, relève-toi plus fort.' },
   { word: 'SANS COMPROMIS',  phrase: 'Avec l\'effort. Tu peux être flexible sur tout sauf ça.' },
   { word: 'PHÉNIX',          phrase: 'Tu renais dans chaque séance. Plus fort qu\'avant.' },
-  { word: 'CARBURANT',       phrase: 'La douleur en est un. Apprends à t\'en servir.' },
+  { word: 'CARBURANT',       phrase: 'L’énergie et la régularité font avancer.' },
   { word: 'SOIS CET HOMME',  phrase: 'Celui que tu veux devenir. Il commence ici.' },
   { word: 'CHAQUE HEURE',    phrase: 'Passée à travailler est une dette que ton futur te rendra.' },
   { word: 'ACCROCHE-TOI',    phrase: 'Pas à la barre seulement. À ton objectif.' },
@@ -4269,13 +4408,40 @@ async function importForgeData(input){
     if(data.format!=='FORGE-export'||data.version!==14||!data.entries||typeof data.entries!=='object'||Array.isArray(data.entries))throw Error('Format de sauvegarde invalide');
     const keys=Object.keys(data.entries);
     if(!keys.length||keys.some(k=>!/^forge_[a-z0-9_]+$/.test(k)||typeof data.entries[k]!=='string'))throw Error('Données invalides');
-    for(const key of ['forge_w','forge_r','forge_sets','forge_profile','forge_xp','forge_completed_exercises']){
-      if(data.entries[key]!==undefined){
-        const parsed=JSON.parse(data.entries[key]);
-        if(key==='forge_w'&&!Array.isArray(parsed))throw Error('Pesées invalides');
-        if(key!=='forge_w'&&(typeof parsed!=='object'||parsed===null||Array.isArray(parsed)))throw Error('Données '+key+' invalides');
-      }
+    const number=(n,min,max)=>typeof n==='number'&&Number.isFinite(n)&&n>=min&&n<=max;
+    const object=o=>o&&typeof o==='object'&&!Array.isArray(o);
+    const dateText=s=>typeof s==='string'&&/^\d{1,2}\/\d{1,2}\/\d{4}$/.test(s);
+    const parsedEntries={};
+    for(const key of keys){
+      const value=data.entries[key];
+      if(value.length>1024*1024)throw Error('Une entrée est trop volumineuse');
+      if(/^forge_ritual_\d{4}-\d{2}-\d{2}$/.test(key)){if(value!=='1')throw Error('Rituel invalide');continue;}
+      if(key==='forge_start_date'){if(!Number.isFinite(new Date(value).getTime()))throw Error('Date de départ invalide');continue;}
+      if(key==='forge_phase_started'){if(!number(Number(value),1,Date.now()+86400000))throw Error('Date de phase invalide');continue;}
+      if(key==='forge_active_month'){if(!Number.isInteger(Number(value))||Number(value)<0||Number(value)>23)throw Error('Phase invalide');continue;}
+      if(!['forge_w','forge_r','forge_sets','forge_profile','forge_xp','forge_completed_exercises','forge_adapt','forge_commando','forge_stretch','forge_walk'].includes(key))throw Error('Clé inconnue dans la sauvegarde');
+      parsedEntries[key]=JSON.parse(value);
     }
+    const w=parsedEntries.forge_w;
+    if(w!==undefined&&(!Array.isArray(w)||!w.every(e=>object(e)&&number(e.w,40,200)&&number(e.ts,1,Date.now()+86400000)&&dateText(e.date)&&[ ['f',5,60],['m',10,70],['water',30,80],['bone',1,6],['visceral',1,30],['bodyage',10,80] ].every(([k,min,max])=>e[k]==null||number(e[k],min,max)))))throw Error('Pesées invalides');
+    const r=parsedEntries.forge_r;
+    if(r!==undefined&&(!object(r)||!Object.values(r).every(list=>Array.isArray(list)&&list.every(e=>object(e)&&number(e.v,0,864000)&&number(e.ts,1,Date.now()+86400000)&&dateText(e.date)&&(e.reps==null||number(e.reps,0,100000))))))throw Error('Records invalides');
+    const sets=parsedEntries.forge_sets;
+    if(sets!==undefined&&(!object(sets)||!Object.values(sets).every(list=>Array.isArray(list)&&list.every(n=>Number.isInteger(n)&&n>=0&&n<=100))))throw Error('Séries invalides');
+    const xp=parsedEntries.forge_xp;
+    if(xp!==undefined&&(!object(xp)||!number(xp.total,0,10000000)||!Array.isArray(xp.log)||!xp.log.every(e=>object(e)&&number(e.amount,0,10000)&&number(e.ts,1,Date.now()+86400000)&&typeof e.reason==='string'&&e.reason.length<200)))throw Error('Points XP invalides');
+    const completed=parsedEntries.forge_completed_exercises;
+    if(completed!==undefined&&(!object(completed)||!Object.entries(completed).every(([day,ids])=>/^\d{4}-\d{2}-\d{2}$/.test(day)&&Array.isArray(ids)&&ids.every(id=>typeof id==='string'&&id.length<100))))throw Error('Séances invalides');
+    const adapt=parsedEntries.forge_adapt;
+    if(adapt!==undefined&&(!object(adapt)||!Object.values(adapt).every(note=>typeof note==='string'&&note.length<=2000)))throw Error('Notes invalides');
+    const commando=parsedEntries.forge_commando;
+    if(commando!==undefined&&(!Array.isArray(commando)||!commando.every(ts=>number(ts,1,Date.now()+86400000))))throw Error('Circuit invalide');
+    const stretch=parsedEntries.forge_stretch;
+    if(stretch!==undefined&&(!object(stretch)||!Object.values(stretch).every(v=>typeof v==='boolean'||v===1||v===0)))throw Error('Étirements invalides');
+    const walk=parsedEntries.forge_walk;
+    if(walk!==undefined&&(!object(walk)||!Object.values(walk).every(min=>number(min,0,90))))throw Error('Marche invalide');
+    const profile=parsedEntries.forge_profile;
+    if(profile!==undefined&&(!object(profile)||!number(profile.age,18,90)||!number(profile.height,120,230)||!number(profile.goal,40,200)||!['male','female'].includes(profile.sex)||!number(Number(profile.activity),1.3,1.6)||typeof profile.exclusions!=='string'||profile.exclusions.length>500))throw Error('Profil invalide');
     if(!confirm('Remplacer toutes les données FORGE de cet appareil par cette sauvegarde ?'))return;
     const old={};for(let i=0;i<window.localStorage.length;i++){const key=window.localStorage.key(i);if(key&&key.startsWith('forge_'))old[key]=window.localStorage.getItem(key);}
     try{
@@ -4290,6 +4456,13 @@ async function importForgeData(input){
   }catch(err){alert('Import impossible : '+err.message);}finally{input.value='';}
 }
 document.addEventListener('DOMContentLoaded', () => {
+  const warning=document.getElementById('forge-storage-warning');
+  if(warning)warning.hidden=forgeStoragePersistent;
+  document.querySelectorAll('.field,.metric-field').forEach(field=>{
+    const label=field.querySelector('label');
+    const control=field.querySelector('input,select,textarea');
+    if(label&&control&&!label.contains(control)&&control.id)label.htmlFor=control.id;
+  });
   const bootStep = (label, fn) => {
     try { fn(); }
     catch (err) { console.error('FORGE boot:', label, err); }
