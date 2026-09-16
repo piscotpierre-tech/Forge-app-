@@ -1214,7 +1214,7 @@ input:focus-visible,select:focus-visible,button:focus-visible { outline:2px soli
   </div>
 
   <div class="card mb20"><div class="sect-title">💾 Sauvegarde de tes données</div>
-    <div class="page-sub mb12">Export privé à conserver : pesées, séances, profil et défis. L'import remplace les données FORGE présentes sur cet appareil.</div>
+    <div class="page-sub mb12">Export privé à conserver : pesées, séances, profil et défis. Une sauvegarde complète remplace les données présentes. Un fichier de pesées FORGE fusionne uniquement l'historique, sans toucher au reste.</div>
     <button class="btn btn-ghost" onclick="exportForgeData()">Exporter mes données</button>
     <input class="inp" type="file" id="forge-import" accept="application/json,.json" onchange="importForgeData(this)" style="margin-top:10px">
   </div>
@@ -4405,6 +4405,31 @@ async function importForgeData(input){
     const file=input.files?.[0];if(!file)return;
     if(file.size>5*1024*1024)throw Error('Fichier trop grand');
     const data=JSON.parse(await file.text());
+    if(data.format==='FORGE-weigh-ins'){
+      if(data.version!==1||!Array.isArray(data.weights)||!data.weights.length)throw Error('Format de pesées invalide');
+      const number=(n,min,max)=>typeof n==='number'&&Number.isFinite(n)&&n>=min&&n<=max;
+      const dateText=s=>typeof s==='string'&&/^\d{1,2}\/\d{1,2}\/\d{4}$/.test(s);
+      const valid=data.weights.every(e=>e&&typeof e==='object'&&!Array.isArray(e)&&number(e.w,40,200)&&number(e.ts,1,Date.now()+86400000)&&dateText(e.date)&&[
+        ['f',5,60],['m',10,70],['water',30,80],['bone',1,6],['visceral',1,30],['bodyage',10,80]
+      ].every(([k,min,max])=>e[k]==null||number(e[k],min,max))&&(e.feel==null||number(e.feel,1,5)));
+      if(!valid)throw Error('Certaines pesées sont invalides');
+      const current=forgeStoredJSON('forge_w',[]);
+      const byDay=new Map(current.filter(e=>e&&Number.isFinite(e.ts)).map(e=>[new Date(e.ts).toISOString().slice(0,10),e]));
+      let added=0,updated=0;
+      for(const raw of data.weights){
+        const day=new Date(raw.ts).toISOString().slice(0,10);
+        const mi=Math.min(TOTAL_MONTHS-1,Math.max(0,Math.floor((raw.ts-START.getTime())/(86400000*30.44))));
+        const entry={...raw,feel:raw.feel??3,mi};
+        if(byDay.has(day))updated++;else added++;
+        byDay.set(day,entry);
+      }
+      const merged=[...byDay.values()].sort((a,b)=>a.ts-b.ts);
+      if(!confirm(`Fusionner ${data.weights.length} pesée(s) avec ton historique ?\n${added} ajoutée(s), ${updated} date(s) déjà présentes mise(s) à jour.\nTes séances, ton profil et tes autres données resteront inchangés.`))return;
+      forgeStorage.setItem('forge_w',JSON.stringify(merged));
+      alert('Pesées importées avec succès.');
+      window.location.reload();
+      return;
+    }
     if(data.format!=='FORGE-export'||data.version!==14||!data.entries||typeof data.entries!=='object'||Array.isArray(data.entries))throw Error('Format de sauvegarde invalide');
     const keys=Object.keys(data.entries);
     if(!keys.length||keys.some(k=>!/^forge_[a-z0-9_]+$/.test(k)||typeof data.entries[k]!=='string'))throw Error('Données invalides');
